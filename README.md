@@ -17,7 +17,7 @@ It'd be great to also be able to get all the current build status at a higher le
 
 ```
 bundle install
-bundle exec ruby ./server.rb
+bundle exec rackup -p 4567 config.ru
 open http://localhost:4567
 ```
 
