@@ -1,4 +1,6 @@
-require "active_support/core_ext"
+# frozen_string_literal: true
+
+require 'active_support/core_ext'
 
 # Nevergreen example: https://api.github.com/repos/build-canaries/nevergreen/actions/workflows/nevergreen.yml/runs
 # CCTray spec: https://cctray.org/v1/
