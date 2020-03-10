@@ -15,6 +15,8 @@ It'd be great to also be able to get all the current build status at a higher le
 - https://api.github.com/repos/build-canaries/cc.xml
 - https://api.github.com/repos/build-canaries/nevergreen/cc.xml
 
+This reduces the amount of http calls that are needed to poll for changes.
+
 ## How to use
 
 ```
@@ -23,10 +25,11 @@ bundle exec rackup -p 4567 config.ru
 open http://localhost:4567
 ```
 
-## Notes for other implementors (Joe: add this to the CCTray spec site)
+To deploy
 
-- lastBuildStatus takes previous conlclusion if currently running
-- only return the most recent run in the XML
+```
+git push heroku master
+```
 
 ## Links
 
