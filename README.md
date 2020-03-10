@@ -1,5 +1,7 @@
 # Github to CCTray example
 
+A demo is available here: https://cryptic-stream-13380.herokuapp.com/build-canaries/nevergreen/nevergreen.yml
+
 This is an example for how to convert from Github Actions to the CCTray format.
 
 Ideally, this would be supported by Github directly, but this could be used as a proxy to convert between the formats.
