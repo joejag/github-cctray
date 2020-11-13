@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'xmlsimple'
+require "xmlsimple"
 
 # Convert from Github Actions API format (dropping unused fields):
 #
@@ -20,68 +20,64 @@ require 'xmlsimple'
 # </Projects>
 class GithubToCCTray
   ACTIVITY_MAP = {
-    'queued' => 'Building',
-    'in_progress' => 'Building',
-    'completed' => 'Sleeping'
+    "queued" => "Building",
+    "in_progress" => "Building",
+    "completed" => "Sleeping"
   }.freeze
 
   CONCLUSION_MAP = {
-    'success' => 'Success',
-    'failure' => 'Failure',
-    'cancelled' => 'Failure',
-    'timed_out' => 'Failure'
+    "success" => "Success",
+    "failure" => "Failure",
+    "cancelled" => "Failure",
+    "timed_out" => "Failure"
   }.freeze
 
+  def convert_to_xml(github_workflow_runs)
+    cctray_content = convert(github_workflow_runs)
+    XmlSimple.xml_out(cctray_content, {
+      rootname: "Projects",
+      anonymoustag: "Project"
+    })
+  end
+
   def convert(github_workflow_runs)
-    # We only want to show the status of the most recent run, so drop the older runs
-    runs_to_show = []
-    runs = github_workflow_runs.fetch('workflow_runs', [])
-    runs_sorted_by_latest = runs.sort { |a, b| b['created_at'] <=> a['created_at'] }
-    runs_sorted_by_latest.each do |run|
-      unless runs_to_show.any? { |r| r['repository']['full_name'] == run['repository']['full_name'] }
-        runs_to_show << run
-      end
-    end
+    runs = github_workflow_runs.fetch("workflow_runs", [])
+    most_recent_run = runs.max_by { |run| run["created_at"] }
 
-    # We need to map from GitHub action format to the CCTray XML format
-    runs_to_show.map do |workflow_run|
-      name = workflow_run['repository']['full_name']
-      status = workflow_run['status']
-      conclusion = workflow_run['conclusion']
-      created_at = workflow_run['created_at']
-      run_number = workflow_run['run_number']
-      lookup_url = workflow_run['html_url']
-
-      # When conclusion is missing we take the previous runs status
-      # This let's know what state we are building from
-      # We know: Are we fixing a build or running a new version?
-      if conclusion.nil?
-        conclusion = previous_conclusion(name, created_at, runs)
-      end
-
-      { name: name,
-        activity: ACTIVITY_MAP.fetch(status, 'Unknown'),
-        lastBuildLabel: run_number,
-        lastBuildStatus: CONCLUSION_MAP.fetch(conclusion, 'Unknown'),
-        lastBuildTime: created_at,
-        webUrl: lookup_url }
+    if most_recent_run
+      [generate_cctray_content_for(most_recent_run, all_runs: runs)]
+    else
+      []
     end
   end
+
+  private
+
+  # rubocop:disable Metrics/MethodLength
+  def generate_cctray_content_for(run, all_runs: )
+    name = run["repository"]["full_name"]
+    created_at = run["created_at"]
+    conclusion = run["conclusion"] || previous_conclusion(name, created_at, all_runs)
+
+    {
+      name: name,
+      activity: ACTIVITY_MAP.fetch(run["status"], "Unknown"),
+      lastBuildLabel: run["run_number"],
+      lastBuildStatus: CONCLUSION_MAP.fetch(conclusion, "Unknown"),
+      lastBuildTime: created_at,
+      webUrl: run["html_url"]
+    }
+  end
+  # rubocop:enable Metrics/MethodLength
 
   # From all builds, find the one that ran before with the same name
-  def previous_conclusion(project_name, before, runs)
-    previous_runs = runs
-                    .select { |run| run['repository']['full_name'] == project_name }
-                    .select { |run| Time.parse(run['created_at']) < Time.parse(before) }
-                    .sort { |a, b| b['created_at'] <=> a['created_at'] }
+  def previous_conclusion(project_name, before, all_runs)
+    previous_runs = all_runs
+      .select { |run| run["repository"]["full_name"] == project_name }
+      .select { |run| Time.parse(run["created_at"]) < Time.parse(before) }
+      .sort { |a, b| b["created_at"] <=> a["created_at"] }
 
-    previous_runs.fetch(0, { 'conclusion': nil })['conclusion']
-  end
-
-  def convert_to_xml(github_workflow_runs)
-    XmlSimple.xml_out(convert(github_workflow_runs), {
-                        rootname: 'Projects',
-                        anonymoustag: 'Project'
-                      })
+    previous_runs.fetch(0, { 'conclusion': nil })["conclusion"]
   end
 end
+

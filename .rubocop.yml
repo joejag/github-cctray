@@ -1,0 +1,16 @@
+inherit_gem:
+  groundwork-style:
+    - rubocop.yml
+    - rubocop_performance.yml
+    - rubocop_rake.yml
+    - rubocop_thread_safety.yml
+    - rubocop_i18n.yml
+
+AllCops:
+  UseCache: true
+  MaxFilesInCache: 20000
+
+Style/MethodCallWithArgsParentheses:
+  Exclude:
+    - spec/**/*
+
