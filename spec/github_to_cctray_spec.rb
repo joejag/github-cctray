@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "../github_to_cctray"
+require_relative "../lib/github_to_cctray"
 require "rspec/match_fuzzy"
 require "time"
 

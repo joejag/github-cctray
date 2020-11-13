@@ -1,3 +1,11 @@
+# 🚗 StreetParking
+
+## Environment Variables
+
+### Required
+- Redis
+  - `REDIS_URL`
+
 # Github to CCTray example
 
 A demo is available here: https://cryptic-stream-13380.herokuapp.com/build-canaries/nevergreen/nevergreen.yml
