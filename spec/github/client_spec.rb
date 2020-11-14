@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 require "active_support/core_ext/module/delegation"
+require "active_support/json"
 require_relative "../../lib/github/client"
 
 RSpec.describe GitHub::Client do
-  let(:client) { described_class.new(username: username, token: token) }
+  let(:client) { described_class.new(username: username, token: token, cache: cache) }
   let(:username) { "jeff" }
   let(:token) { "meow" }
+  let(:cache) { double(:cache, read: cached, write: nil) }
+  let(:cached) { nil }
 
   describe "#runs" do
     subject { client.runs(group: group, repo: repo, workflow: workflow) }
@@ -23,8 +26,6 @@ RSpec.describe GitHub::Client do
     let(:response_data) { template_github_job_status }
     before { stub_request(:get, uri).to_return(status: 200, body: response_data.to_json) }
 
-    it { should have_requested(:get, uri).with(headers: headers) }
-
     context "with no username" do
       let(:username) { nil }
       it "raises an error" do
@@ -39,8 +40,70 @@ RSpec.describe GitHub::Client do
       end
     end
 
-    context "when the network request succeeds" do
+    it "attempts to read the runs from the cache" do
+      subject
+      expect(cache).to have_received(:read).with(uri.to_s)
+    end
+
+    context "when the requested runs are in the cache" do
+      let(:cached) { { etag: etag, runs: cached_data }.as_json }
+      let(:etag) { "badf00d" }
+      let(:cached_data) { template_github_job_status({ "created_at" => "2020-03-09T21:03:53Z" }) }
+      before { headers.merge("If-None-Match": etag) }
+
+      context "and the request returns 304" do
+        before { stub_request(:get, uri).to_return(status: 304) }
+        it { should have_requested(:get, uri).with(headers: headers) }
+        it { should == cached_data }
+
+        it "does not write to the cache" do
+          subject
+          expect(cache).not_to have_received(:write)
+        end
+      end
+
+      context "and the request returns 200" do
+        let(:new_etag) { "deadbeef" }
+        before do
+          stub_request(:get, uri).to_return(
+            status: 200,
+            body: response_data.to_json,
+            headers: { "ETag" => new_etag }
+          )
+        end
+        it { should have_requested(:get, uri).with(headers: headers) }
+        it { should == response_data }
+
+        it "writes the result to the cache" do
+          subject
+          expect(cache).to have_received(:write).with(uri.to_s, {
+            etag: new_etag,
+            runs: response_data
+          })
+        end
+      end
+    end
+
+    context "when the requested runs are not in the cache" do
+      let(:cached) { nil }
+      let(:new_etag) { "deadbeef" }
+      before do
+        stub_request(:get, uri).to_return(
+          status: 200,
+          body: response_data.to_json,
+          headers: { "ETag" => new_etag }
+        )
+      end
+      it { should have_requested(:get, uri).with(headers: headers) }
       it { should == response_data }
+
+      it "writes the result to the cache" do
+        subject
+        expect(cache).to have_received(:write).with(uri.to_s, {
+          etag: new_etag,
+          runs: response_data
+        })
+      end
     end
 
     context "when the network request fails" do
