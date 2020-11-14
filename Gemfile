@@ -9,6 +9,7 @@ source "https://rubygems.org" do
   end
 
   group :test do
+    gem "rake"
     gem "rspec"
     gem "rspec-match_fuzzy"
   end
