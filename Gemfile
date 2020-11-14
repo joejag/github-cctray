@@ -16,6 +16,7 @@ source "https://rubygems.org" do
     gem "activesupport"
     gem "rake"
     gem "rspec"
+    gem "rspec-its"
     gem "rspec-match_fuzzy"
     gem "webmock"
   end

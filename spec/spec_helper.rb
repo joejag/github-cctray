@@ -2,6 +2,7 @@
 
 require "webmock/rspec"
 require "srp/api/spec"
+require "rspec/its"
 
 module Helpers
   def template_github_job_status(overrides = {})

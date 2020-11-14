@@ -8,8 +8,8 @@ RSpec.describe GitHub::Client do
   let(:username) { "jeff" }
   let(:token) { "meow" }
 
-  describe "#status" do
-    subject { client.status(group: group, repo: repo, workflow: workflow) }
+  describe "#runs" do
+    subject { client.runs(group: group, repo: repo, workflow: workflow) }
     let(:group) { "wibble" }
     let(:repo) { "good-stuff" }
     let(:workflow) { "ci.yml" }

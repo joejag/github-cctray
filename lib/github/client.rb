@@ -12,7 +12,7 @@ module GitHub
       raise ArgumentError unless username && token
     end
 
-    def status(group: , repo: , workflow: )
+    def runs(group: , repo: , workflow: )
       uri = URI("https://api.github.com/repos/#{group}/#{repo}/actions/workflows/#{workflow}/runs")
       request(:get, uri)
     end
