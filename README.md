@@ -3,6 +3,11 @@
 ## Environment Variables
 
 ### Required
+- GitHub
+  - `GITHUB_USERNAME`
+  - `GITHUB_TOKEN`
+    A personal access token for the given GitHub user.  This must have the `repo` permission.
+
 - Redis
   - `REDIS_URL`
 

@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "webmock/rspec"
+require "srp/api/spec"
+
 module Helpers
   def template_github_job_status(overrides = {})
     {
@@ -30,6 +33,7 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
+  config.before { WebMock.disable_net_connect! }
   config.include(Helpers)
 end
 

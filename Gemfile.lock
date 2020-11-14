@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/StrongholdResourcePartners/srp-api.git
+  revision: 9ab7461bc16a0b5026c98649b410ed44eb0e2170
+  specs:
+    srp-api (0.1.0)
+      http (~> 4.4)
+
+GIT
   remote: https://github.com/buildgroundwork/groundwork-style.git
   revision: cc3ecd0ae5130693ecb029f0c99caf39edeac04d
   specs:
@@ -20,9 +27,29 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
     concurrent-ruby (1.1.7)
+    crack (0.4.4)
     diff-lcs (1.4.4)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    ffi (1.13.1)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
+    hashdiff (1.0.1)
+    http (4.4.1)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      http-parser (~> 1.2.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    http-parser (1.2.1)
+      ffi-compiler (>= 1.0, < 2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     minitest (5.14.2)
@@ -31,6 +58,7 @@ GEM
     parallel (1.20.0)
     parser (2.7.2.0)
       ast (~> 2.4.1)
+    public_suffix (4.0.6)
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
@@ -91,7 +119,14 @@ GEM
     tilt (2.0.10)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
     unicode-display_width (1.7.0)
+    webmock (3.10.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     xml-simple (1.1.5)
     zeitwerk (2.4.1)
 
@@ -99,11 +134,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport!
   groundwork-style!
+  http!
   rake!
   rspec!
   rspec-match_fuzzy!
   sinatra!
+  srp-api!
+  webmock!
   xml-simple!
 
 BUNDLED WITH
