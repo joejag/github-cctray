@@ -3,7 +3,6 @@
 ruby "2.7.2"
 
 source "https://rubygems.org" do
-  gem "http"
   gem "redis"
   gem "sinatra"
   gem "srp-api", github: "StrongholdResourcePartners/srp-api", require: false
