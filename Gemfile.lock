@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/StrongholdResourcePartners/srp-api.git
-  revision: 9ab7461bc16a0b5026c98649b410ed44eb0e2170
+  revision: 254f6e61f66b2ac7161ea1e81c253d9ae909150e
   specs:
     srp-api (0.1.0)
       http (~> 4.4)
