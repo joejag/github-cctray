@@ -4,7 +4,6 @@ inherit_gem:
     - rubocop_performance.yml
     - rubocop_rake.yml
     - rubocop_thread_safety.yml
-    - rubocop_i18n.yml
 
 AllCops:
   UseCache: true

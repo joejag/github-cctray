@@ -7,16 +7,15 @@ GIT
 
 GIT
   remote: https://github.com/buildgroundwork/groundwork-style.git
-  revision: cc3ecd0ae5130693ecb029f0c99caf39edeac04d
+  revision: 049da2ff2ea3099497dc460c7270af36cf43c006
   specs:
     groundwork-style (0.87.1)
-      rubocop (~> 0.93, >= 0.93.1)
-      rubocop-i18n (~> 2.0, >= 2.0.2)
-      rubocop-performance (~> 1.8, >= 1.8.1)
-      rubocop-rails (~> 2.8, >= 2.8.1)
-      rubocop-rake (~> 0.5, >= 0.5.1)
-      rubocop-rspec (~> 1.44, >= 1.44.1)
-      rubocop-thread_safety (~> 0.4, >= 0.4.2)
+      rubocop (~> 1.3)
+      rubocop-performance (~> 1.8)
+      rubocop-rails (~> 2.8)
+      rubocop-rake (~> 0.5)
+      rubocop-rspec (~> 2.0)
+      rubocop-thread_safety (~> 0.4)
 
 GEM
   remote: https://rubygems.org/
@@ -85,21 +84,19 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.0)
-    rubocop (0.93.1)
+    rubocop (1.3.1)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8)
       rexml
-      rubocop-ast (>= 0.6.0)
+      rubocop-ast (>= 1.1.1)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (1.1.1)
       parser (>= 2.7.1.5)
-    rubocop-i18n (2.0.2)
-      rubocop (~> 0.51)
-    rubocop-performance (1.8.1)
-      rubocop (>= 0.87.0)
+    rubocop-performance (1.9.0)
+      rubocop (>= 0.90.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     rubocop-rails (2.8.1)
       activesupport (>= 4.2.0)
@@ -107,9 +104,9 @@ GEM
       rubocop (>= 0.87.0)
     rubocop-rake (0.5.1)
       rubocop
-    rubocop-rspec (1.44.1)
-      rubocop (~> 0.87)
-      rubocop-ast (>= 0.7.1)
+    rubocop-rspec (2.0.0)
+      rubocop (~> 1.0)
+      rubocop-ast (>= 1.1.0)
     rubocop-thread_safety (0.4.2)
       rubocop (>= 0.53.0)
     ruby-progressbar (1.10.1)
