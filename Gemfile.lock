@@ -7,10 +7,10 @@ GIT
 
 GIT
   remote: https://github.com/buildgroundwork/groundwork-style.git
-  revision: 049da2ff2ea3099497dc460c7270af36cf43c006
+  revision: 2d95f5a03f702f6e1703b98924fa7231faec3157
   specs:
     groundwork-style (0.87.1)
-      rubocop (~> 1.3)
+      rubocop (~> 1.4)
       rubocop-performance (~> 1.8)
       rubocop-rails (~> 2.8)
       rubocop-rake (~> 0.5)
@@ -54,7 +54,7 @@ GEM
     minitest (5.14.2)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    parallel (1.20.0)
+    parallel (1.20.1)
     parser (2.7.2.0)
       ast (~> 2.4.1)
     public_suffix (4.0.6)
@@ -84,7 +84,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.0)
-    rubocop (1.3.1)
+    rubocop (1.4.1)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
       rainbow (>= 2.2.2, < 4.0)
@@ -93,7 +93,7 @@ GEM
       rubocop-ast (>= 1.1.1)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.1.1)
+    rubocop-ast (1.2.0)
       parser (>= 2.7.1.5)
     rubocop-performance (1.9.0)
       rubocop (>= 0.90.0, < 2.0)
