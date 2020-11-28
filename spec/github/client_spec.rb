@@ -49,11 +49,10 @@ RSpec.describe GitHub::Client do
       let(:cached) { { etag: etag, runs: cached_data }.as_json }
       let(:etag) { "badf00d" }
       let(:cached_data) { template_github_job_status({ "created_at" => "2020-03-09T21:03:53Z" }) }
-      before { headers.merge("If-None-Match": etag) }
 
       context "and the request returns 304" do
         before { stub_request(:get, uri).to_return(status: 304) }
-        it { should have_requested(:get, uri).with(headers: headers) }
+        it { should have_requested(:get, uri).with(headers: headers.merge("If-None-Match": etag)) }
         it { should == cached_data }
 
         it "does not write to the cache" do
