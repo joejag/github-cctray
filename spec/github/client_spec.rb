@@ -46,39 +46,58 @@ RSpec.describe GitHub::Client do
     end
 
     context "when the requested runs are in the cache" do
-      let(:cached) { { etag: etag, runs: cached_data }.as_json }
+      let(:cached) { { etag: etag, runs: cached_data, until: cache_until }.as_json }
       let(:etag) { "badf00d" }
       let(:cached_data) { template_github_job_status({ "created_at" => "2020-03-09T21:03:53Z" }) }
 
-      context "and the request returns 304" do
-        before { stub_request(:get, uri).to_return(status: 304) }
-        it { should have_requested(:get, uri).with(headers: headers.merge("If-None-Match": etag)) }
+      context "and the cache is fresh" do
+        let(:cache_until) { 5.seconds.from_now.iso8601 }
+        it { should_not have_requested(:get, uri) }
         it { should == cached_data }
-
         it "does not write to the cache" do
           subject
           expect(cache).not_to have_received(:write)
         end
       end
 
-      context "and the request returns 200" do
-        let(:new_etag) { "deadbeef" }
-        before do
-          stub_request(:get, uri).to_return(
-            status: 200,
-            body: response_data.to_json,
-            headers: { "ETag" => new_etag }
-          )
-        end
-        it { should have_requested(:get, uri).with(headers: headers) }
-        it { should == response_data }
+      context "and the cache is stale" do
+        let(:cache_until) { 1.second.ago.iso8601 }
 
-        it "writes the result to the cache" do
-          subject
-          expect(cache).to have_received(:write).with(uri.to_s, {
-            etag: new_etag,
-            runs: response_data
-          })
+        context "and the request returns 304" do
+          before { stub_request(:get, uri).to_return(status: 304) }
+          it { should have_requested(:get, uri).with(headers: headers.merge("If-None-Match": etag)) }
+          it { should == cached_data }
+
+          it "re-writes the cached data to the cache with a new TTL" do
+            subject
+            expect(cache).to have_received(:write).with(uri.to_s, {
+              etag: etag,
+              runs: cached_data,
+              until: (Time.current + GitHub::Client::CACHE_TTL).iso8601
+            })
+          end
+        end
+
+        context "and the request returns 200" do
+          let(:new_etag) { "deadbeef" }
+          before do
+            stub_request(:get, uri).to_return(
+              status: 200,
+              body: response_data.to_json,
+              headers: { "ETag" => new_etag }
+            )
+          end
+          it { should have_requested(:get, uri).with(headers: headers) }
+          it { should == response_data }
+
+          it "writes the result to the cache" do
+            subject
+            expect(cache).to have_received(:write).with(uri.to_s, {
+              etag: new_etag,
+              runs: response_data,
+              until: (Time.current + GitHub::Client::CACHE_TTL).iso8601
+            })
+          end
         end
       end
     end
@@ -100,7 +119,8 @@ RSpec.describe GitHub::Client do
         subject
         expect(cache).to have_received(:write).with(uri.to_s, {
           etag: new_etag,
-          runs: response_data
+          runs: response_data,
+          until: (Time.current + GitHub::Client::CACHE_TTL).iso8601
         })
       end
     end
