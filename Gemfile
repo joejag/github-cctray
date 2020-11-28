@@ -3,6 +3,7 @@
 ruby "2.7.2"
 
 source "https://rubygems.org" do
+  gem "activesupport"
   gem "redis"
   gem "sinatra"
   gem "srp-api", github: "StrongholdResourcePartners/srp-api", require: false
@@ -13,7 +14,6 @@ source "https://rubygems.org" do
   end
 
   group :test do
-    gem "activesupport"
     gem "rake"
     gem "rspec"
     gem "rspec-its"
