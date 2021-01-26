@@ -32,9 +32,9 @@ class CCTray
     "timed_out" => "Failure"
   }.freeze
 
-  def initialize(github_client: nil)
+  def initialize(github_client: nil, redis_pool: nil)
     @github_client = github_client ||
-      GitHub::Client.new(username: ENV["GITHUB_USERNAME"], token: ENV["GITHUB_TOKEN"])
+      GitHub::Client.new(username: ENV["GITHUB_USERNAME"], token: ENV["GITHUB_TOKEN"], redis_pool: redis_pool)
   end
 
   def status(group: , repo: , workflow: , xml: false)

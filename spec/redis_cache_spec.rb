@@ -18,8 +18,21 @@ class FakeRedis
   end
 end
 
+class FakeRedisPool
+  def initialize(redis)
+    @redis = redis
+  end
+
+  attr_reader :redis
+
+  def with
+    yield(redis)
+  end
+end
+
 describe RedisCache do
-  let(:cache) { described_class.new(redis: redis) }
+  let(:cache) { described_class.new(redis_pool: redis_pool) }
+  let(:redis_pool) { FakeRedisPool.new(redis) }
   let(:redis) { FakeRedis.new }
   let(:key) { "wibble" }
 

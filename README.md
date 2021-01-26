@@ -11,6 +11,13 @@
 - Redis
   - `REDIS_URL`
 
+### Optional
+- Redis Pool
+  - `REDIS_POOL_SIZE`
+    The number of concurrent connections Redis can provide.  Defaults to 25.
+  - `REDIS_POOL_TIMEOUT`
+    Timeout, in seconds, the connection pool will wait for a Redis connection. Defaults to 5.
+
 # Github to CCTray example
 
 A demo is available here: https://cryptic-stream-13380.herokuapp.com/build-canaries/nevergreen/nevergreen.yml

@@ -30,6 +30,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
     concurrent-ruby (1.1.7)
+    connection_pool (2.2.3)
     crack (0.4.4)
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
@@ -136,6 +137,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport!
+  connection_pool!
   groundwork-style!
   rake!
   redis!
