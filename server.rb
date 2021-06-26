@@ -16,5 +16,5 @@ get '/:group/:repo/:workflow' do |group, repo, workflow|
   response = Net::HTTP.get(URI("https://api.github.com/repos/#{group}/#{repo}/actions/workflows/#{workflow}/runs"))
   payload = JSON.parse(response)
 
-  GithubToCCTray.new.convert_to_xml(payload)
+  GithubToCCTray.new.convert_to_xml(payload, params[:branch])
 end

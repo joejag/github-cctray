@@ -10,13 +10,14 @@ require 'xmlsimple'
 #     'conclusion' => 'success',
 #     'created_at' => '2020-03-09T21:03:53Z',
 #     'html_url' => 'https://github.com/build-canaries/nevergreen/actions/runs/52530432',
+#     'head_branch' => 'main',
 #     'repository' => { 'full_name' => 'a_group/a_repo' } }
 # ]}
 #
 # To CCTray format:
 #
 # <Projects>
-#   <Project name="a_group/a_repo" activity="Sleeping" lastBuildLabel="10" lastBuildStatus="Success" lastBuildTime="2020-03-09T21:03:53Z" webUrl="https://github.com/build-canaries/nevergreen/actions/runs/52530432" />
+#   <Project name="a_group/a_repo (main)" activity="Sleeping" lastBuildLabel="10" lastBuildStatus="Success" lastBuildTime="2020-03-09T21:03:53Z" webUrl="https://github.com/build-canaries/nevergreen/actions/runs/52530432" />
 # </Projects>
 class GithubToCCTray
   ACTIVITY_MAP = {
@@ -32,10 +33,11 @@ class GithubToCCTray
     'timed_out' => 'Failure'
   }.freeze
 
-  def convert(github_workflow_runs)
+  def convert(github_workflow_runs, branch = nil)
     # We only want to show the status of the most recent run, so drop the older runs
     runs_to_show = []
     runs = github_workflow_runs.fetch('workflow_runs', [])
+    runs = runs.select { |a| a['head_branch'] == branch } if branch
     runs_sorted_by_latest = runs.sort { |a, b| b['created_at'] <=> a['created_at'] }
     runs_sorted_by_latest.each do |run|
       unless runs_to_show.any? { |r| r['repository']['full_name'] == run['repository']['full_name'] }
@@ -59,6 +61,8 @@ class GithubToCCTray
         conclusion = previous_conclusion(name, created_at, runs)
       end
 
+      name = "#{name} (#{branch})" if branch
+
       { name: name,
         activity: ACTIVITY_MAP.fetch(status, 'Unknown'),
         lastBuildLabel: run_number,
@@ -78,8 +82,8 @@ class GithubToCCTray
     previous_runs.fetch(0, { 'conclusion': nil })['conclusion']
   end
 
-  def convert_to_xml(github_workflow_runs)
-    XmlSimple.xml_out(convert(github_workflow_runs), {
+  def convert_to_xml(github_workflow_runs, branch = nil)
+    XmlSimple.xml_out(convert(github_workflow_runs, branch), {
                         rootname: 'Projects',
                         anonymoustag: 'Project'
                       })
