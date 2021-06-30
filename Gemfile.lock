@@ -1,4 +1,7 @@
 GEM
+  specs:
+
+GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
@@ -6,9 +9,12 @@ GEM
     jaro_winkler (1.5.4)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.7)
     parallel (1.19.1)
     parser (2.7.0.4)
       ast (~> 2.4.0)
+    puma (5.3.2)
+      nio4r (~> 2.0)
     rack (2.2.2)
     rack-protection (2.0.8.1)
       rack
@@ -52,6 +58,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  puma!
   rspec!
   rspec-match_fuzzy!
   rubocop!
@@ -59,4 +66,4 @@ DEPENDENCIES
   xml-simple!
 
 BUNDLED WITH
-   2.0.1
+   2.2.15

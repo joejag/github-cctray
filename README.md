@@ -36,3 +36,9 @@ git push heroku master
 - CCTray spec: https://cctray.org/v1/
 - GitHub actions states doc: https://developer.github.com/v3/checks/runs/
 - Nevergreen example: https://api.github.com/repos/build-canaries/nevergreen/actions/workflows/nevergreen.yml/runs
+
+## Contributers
+
+Thank you to anyone taking their time to contribute to this repo. Theses include:
+
+- Branch filtering added by [Dana Sherson](https://github.com/robotdana)

@@ -4,6 +4,7 @@ source 'https://rubygems.org' do
   gem 'rubocop'
   gem 'sinatra'
   gem 'xml-simple'
+  gem 'puma'
 
   group :test do
     gem 'rspec'
