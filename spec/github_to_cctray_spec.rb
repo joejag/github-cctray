@@ -114,4 +114,23 @@ describe GithubToCCTray do
               </Projects>'
     )
   end
+
+  it 'can filter by branches' do
+    jobs = { 'workflow_runs' => [
+      template_github_job({
+                            'head_branch' => 'dev',
+                            'created_at' => Time.new(2020, 1, 1).utc.iso8601,
+                            'repository' => { 'full_name' => 'OUR_PROJECT' }
+                          }),
+      template_github_job({
+                            'head_branch' => 'main',
+                            'created_at' => Time.new(2019, 1, 1).utc.iso8601,
+                            'repository' => { 'full_name' => 'OUR_PROJECT' }
+                          })
+
+    ] }
+
+    expect(subject.convert(jobs, 'main').size).to eq(1)
+    expect(subject.convert(jobs, 'main')[0]).to include(lastBuildTime: Time.new(2019, 1, 1).utc.iso8601, name: 'a_group/a_repo (main)')
+  end
 end
