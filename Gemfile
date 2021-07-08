@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-ruby "2.7.2"
+ruby "3.0.2"
 
 source "https://rubygems.org" do
   gem "activesupport"
   gem "connection_pool"
   gem "redis"
   gem "sinatra"
-  gem "srp-api", github: "StrongholdResourcePartners/srp-api", require: false
+  gem "srp-api", github: "srpatx/srp-api", require: false
   gem "xml-simple"
 
   group :development do
-    gem "groundwork-style", require: false, github: "buildgroundwork/groundwork-style"
+    gem "srp-style", require: false, github: "srpatx/srp-style"
   end
 
   group :test do

@@ -1,5 +1,5 @@
 inherit_gem:
-  groundwork-style:
+  srp-style:
     - rubocop.yml
     - rubocop_performance.yml
     - rubocop_rake.yml
