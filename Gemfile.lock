@@ -147,6 +147,7 @@ DEPENDENCIES
   rack
   rake
   redis
+  rexml
   rspec
   rspec-its
   rspec-match_fuzzy

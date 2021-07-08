@@ -9,6 +9,7 @@ gem "connection_pool"
 gem "puma"
 gem "rack"
 gem "redis"
+gem "rexml"
 gem "sinatra"
 gem "srp-api", github: "srpatx/srp-api", require: false
 gem "xml-simple"
