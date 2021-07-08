@@ -140,6 +140,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   connection_pool
+  rack
   rake
   redis
   rspec

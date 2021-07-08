@@ -6,6 +6,7 @@ source "https://rubygems.org"
 
 gem "activesupport"
 gem "connection_pool"
+gem "rack"
 gem "redis"
 gem "sinatra"
 gem "srp-api", github: "srpatx/srp-api", require: false
