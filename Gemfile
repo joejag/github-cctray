@@ -6,6 +6,7 @@ source "https://rubygems.org"
 
 gem "activesupport"
 gem "connection_pool"
+gem "puma"
 gem "rack"
 gem "redis"
 gem "sinatra"
