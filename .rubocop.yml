@@ -8,6 +8,8 @@ inherit_gem:
 AllCops:
   UseCache: true
   MaxFilesInCache: 20000
+  Exclude:
+    - bin/**/*
 
 Style/MethodCallWithArgsParentheses:
   Exclude:
