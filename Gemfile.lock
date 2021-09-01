@@ -116,7 +116,7 @@ GEM
     rubocop-thread_safety (0.4.3)
       rubocop (>= 0.53.0)
     ruby-progressbar (1.11.0)
-    ruby2_keywords (0.0.4)
+    ruby2_keywords (0.0.5)
     sinatra (2.1.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
