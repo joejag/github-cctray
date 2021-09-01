@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/srpatx/srp-api.git
-  revision: baf755c118dd36d27904bb86d7fa4692763c5254
+  revision: dd76c3675b6f458aa53b518be986e2e6b4716963
   specs:
     srp-api (0.1.0)
-      http (~> 5.0, >= 5.0.1)
+      http (>= 4.4)
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
