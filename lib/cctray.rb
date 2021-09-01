@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "xmlsimple"
 
 # Convert from Github Actions API format (dropping unused fields):

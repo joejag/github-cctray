@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "webmock/rspec"
 require "srp/api/spec"
 require "rspec/its"

@@ -7,12 +7,12 @@ GIT
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: d5ffb4e8c1155fa96a1c8604b946e4d95002f5eb
+  revision: 9bcbc64f3b7f44282c878075fcf5136219fc36f4
   specs:
     srp-style (0.87.1)
-      rubocop (~> 1.18, >= 1.18.3)
-      rubocop-performance (~> 1.11, >= 1.11.3)
-      rubocop-rails (~> 2.11, >= 2.11.2)
+      rubocop (~> 1.20)
+      rubocop-performance (~> 1.11, >= 1.11.5)
+      rubocop-rails (~> 2.11, >= 2.11.3)
       rubocop-rake (~> 0.6)
       rubocop-rspec (~> 2.4)
       rubocop-thread_safety (~> 0.4, >= 0.4.2)
@@ -20,7 +20,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4)
+    activesupport (6.1.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -90,21 +90,21 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.18.3)
+    rubocop (1.20.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 1.9.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.7.0)
+    rubocop-ast (1.11.0)
       parser (>= 3.0.1.1)
-    rubocop-performance (1.11.4)
+    rubocop-performance (1.11.5)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.11.2)
+    rubocop-rails (2.11.3)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
@@ -113,7 +113,7 @@ GEM
     rubocop-rspec (2.4.0)
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
-    rubocop-thread_safety (0.4.2)
+    rubocop-thread_safety (0.4.3)
       rubocop (>= 0.53.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.4)

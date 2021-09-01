@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "srp/api"
 require "active_support/core_ext/numeric/time"
 require_relative "../redis_cache"

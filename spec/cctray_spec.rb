@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative "../lib/cctray"
 require "rspec/match_fuzzy"
 require "time"
