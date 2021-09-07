@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: 9bcbc64f3b7f44282c878075fcf5136219fc36f4
+  revision: 2b444f1084d61335cdcbd539c40e49408874d982
   specs:
     srp-style (0.87.1)
       rubocop (~> 1.20)
@@ -15,7 +15,7 @@ GIT
       rubocop-rails (~> 2.11, >= 2.11.3)
       rubocop-rake (~> 0.6)
       rubocop-rspec (~> 2.4)
-      rubocop-thread_safety (~> 0.4, >= 0.4.2)
+      rubocop-thread_safety (~> 0.4, >= 0.4.3)
 
 GEM
   remote: https://rubygems.org/
@@ -36,7 +36,7 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    ffi (1.15.3)
+    ffi (1.15.4)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -133,7 +133,8 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    xml-simple (1.1.8)
+    xml-simple (1.1.9)
+      rexml
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -161,4 +162,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.22
+   2.2.26
