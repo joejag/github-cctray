@@ -7,14 +7,14 @@ GIT
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: 6de36965443f5d38e2954bcceeba301440c5a6d0
+  revision: ebd85d8439894dbdccae8c1e50f595729d090bde
   specs:
     srp-style (0.87.1)
       rubocop (~> 1.21)
       rubocop-performance (~> 1.11, >= 1.11.5)
       rubocop-rails (~> 2.12, >= 2.12.2)
       rubocop-rake (~> 0.6)
-      rubocop-rspec (~> 2.4)
+      rubocop-rspec (~> 2.5)
       rubocop-thread_safety (~> 0.4, >= 0.4.4)
 
 GEM
@@ -110,9 +110,8 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-rspec (2.4.0)
-      rubocop (~> 1.0)
-      rubocop-ast (>= 1.1.0)
+    rubocop-rspec (2.5.0)
+      rubocop (~> 1.19)
     rubocop-thread_safety (0.4.4)
       rubocop (>= 0.53.0)
     ruby-progressbar (1.11.0)
@@ -127,7 +126,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.7)
+    unf_ext (0.0.8)
     unicode-display_width (2.1.0)
     webmock (3.14.0)
       addressable (>= 2.8.0)
