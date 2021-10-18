@@ -7,12 +7,12 @@ GIT
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: 9e163d0609a79607b214b6624603f983a86adc12
+  revision: 9fe10cbb40599404574c5b05b2f2281faf317299
   specs:
     srp-style (0.87.1)
-      rubocop (~> 1.22)
+      rubocop (~> 1.22, >= 1.22.1)
       rubocop-performance (~> 1.11, >= 1.11.5)
-      rubocop-rails (~> 2.12, >= 2.12.2)
+      rubocop-rails (~> 2.12, >= 2.12.4)
       rubocop-rake (~> 0.6)
       rubocop-rspec (~> 2.5)
       rubocop-thread_safety (~> 0.4, >= 0.4.4)
@@ -104,7 +104,7 @@ GEM
     rubocop-performance (1.11.5)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.12.3)
+    rubocop-rails (2.12.4)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
