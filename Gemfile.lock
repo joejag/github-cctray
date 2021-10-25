@@ -7,10 +7,10 @@ GIT
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: 9fe10cbb40599404574c5b05b2f2281faf317299
+  revision: df1a21321d7ae41b774f6e9d018146d1c61661b9
   specs:
     srp-style (0.87.1)
-      rubocop (~> 1.22, >= 1.22.1)
+      rubocop (~> 1.22, >= 1.22.2)
       rubocop-performance (~> 1.11, >= 1.11.5)
       rubocop-rails (~> 2.12, >= 2.12.4)
       rubocop-rake (~> 0.6)
@@ -134,7 +134,7 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
     xml-simple (1.1.9)
       rexml
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   x86_64-darwin-20
