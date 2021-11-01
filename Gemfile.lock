@@ -1,17 +1,17 @@
 GIT
   remote: https://github.com/srpatx/srp-api.git
-  revision: dd76c3675b6f458aa53b518be986e2e6b4716963
+  revision: 3474fc73b5539279701ebfa800bc21649fc36c79
   specs:
     srp-api (0.1.0)
       http (>= 4.4)
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: df1a21321d7ae41b774f6e9d018146d1c61661b9
+  revision: f47695e69860d8a134e2dbc23871fba8a367b019
   specs:
     srp-style (0.87.1)
-      rubocop (~> 1.22, >= 1.22.2)
-      rubocop-performance (~> 1.11, >= 1.11.5)
+      rubocop (~> 1.22, >= 1.22.3)
+      rubocop-performance (~> 1.12)
       rubocop-rails (~> 2.12, >= 2.12.4)
       rubocop-rake (~> 0.6)
       rubocop-rspec (~> 2.5)
@@ -90,7 +90,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.22.2)
+    rubocop (1.22.3)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -101,7 +101,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.12.0)
       parser (>= 3.0.1.1)
-    rubocop-performance (1.11.5)
+    rubocop-performance (1.12.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     rubocop-rails (2.12.4)
