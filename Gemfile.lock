@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/srpatx/srp-api.git
-  revision: 3474fc73b5539279701ebfa800bc21649fc36c79
+  revision: 7b23fa6a90b91ea304e616bb0ec362e9fa1b5e1c
   specs:
     srp-api (0.1.0)
       http (>= 4.4)
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: 892ce283abd5a5627d91932276b52235d3c74227
+  revision: 1bd3f0b5cefa677958c5c63751317fc277c3528a
   specs:
     srp-style (0.87.1)
       rubocop (~> 1.23, >= 1.23.0)
