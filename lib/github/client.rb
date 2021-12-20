@@ -1,4 +1,5 @@
 require "srp/api"
+require "active_support/isolated_execution_state" # See https://github.com/rails/rails/issues/43851
 require "active_support/core_ext/numeric/time"
 require_relative "../redis_cache"
 

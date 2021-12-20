@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/srpatx/srp-api.git
-  revision: 7b23fa6a90b91ea304e616bb0ec362e9fa1b5e1c
+  revision: 647fa6572c1ffab5a63ba2fb1ea3cccbd74958a9
   specs:
     srp-api (0.1.0)
       http (>= 4.4)
@@ -20,12 +20,11 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4.1)
+    activesupport (7.0.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-      zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
@@ -54,7 +53,7 @@ GEM
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
-    minitest (5.14.4)
+    minitest (5.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
@@ -134,7 +133,6 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
     xml-simple (1.1.9)
       rexml
-    zeitwerk (2.5.1)
 
 PLATFORMS
   x86_64-darwin-20
