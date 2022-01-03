@@ -7,14 +7,14 @@ GIT
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: 608297880bee80d386f30a7c93bb65a7aaf96398
+  revision: e568bc3bad543ab3ece91c0810f20cd36d8f4d25
   specs:
     srp-style (0.87.1)
-      rubocop (~> 1.23, >= 1.23.0)
-      rubocop-performance (~> 1.12)
-      rubocop-rails (~> 2.12, >= 2.12.4)
+      rubocop (~> 1.24, >= 1.24.0)
+      rubocop-performance (~> 1.13, >= 1.13.1)
+      rubocop-rails (~> 2.13)
       rubocop-rake (~> 0.6)
-      rubocop-rspec (~> 2.6)
+      rubocop-rspec (~> 2.7)
       rubocop-thread_safety (~> 0.4, >= 0.4.4)
 
 GEM
@@ -32,7 +32,7 @@ GEM
     connection_pool (2.2.5)
     crack (0.4.5)
       rexml
-    diff-lcs (1.4.4)
+    diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     ffi (1.15.4)
@@ -58,7 +58,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
     parallel (1.21.0)
-    parser (3.0.3.2)
+    parser (3.1.0.0)
       ast (~> 2.4.1)
     public_suffix (4.0.6)
     puma (5.5.2)
@@ -89,27 +89,27 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.3)
-    rubocop (1.23.0)
+    rubocop (1.24.1)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.12.0, < 2.0)
+      rubocop-ast (>= 1.15.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.15.0)
+    rubocop-ast (1.15.1)
       parser (>= 3.0.1.1)
-    rubocop-performance (1.12.0)
+    rubocop-performance (1.13.1)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.12.4)
+    rubocop-rails (2.13.0)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-rspec (2.6.0)
+    rubocop-rspec (2.7.0)
       rubocop (~> 1.19)
     rubocop-thread_safety (0.4.4)
       rubocop (>= 0.53.0)
