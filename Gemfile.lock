@@ -7,10 +7,10 @@ GIT
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: e568bc3bad543ab3ece91c0810f20cd36d8f4d25
+  revision: 15531118901477df4efe8fcceb25cafc9f2c66d5
   specs:
     srp-style (0.87.1)
-      rubocop (~> 1.24, >= 1.24.0)
+      rubocop (~> 1.24.1, >= 1.24.0)
       rubocop-performance (~> 1.13, >= 1.13.1)
       rubocop-rails (~> 2.13)
       rubocop-rake (~> 0.6)
@@ -20,7 +20,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.0)
+    activesupport (7.0.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -35,7 +35,7 @@ GEM
     diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    ffi (1.15.4)
+    ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -103,7 +103,7 @@ GEM
     rubocop-performance (1.13.1)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.13.0)
+    rubocop-rails (2.13.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
