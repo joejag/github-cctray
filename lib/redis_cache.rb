@@ -21,4 +21,3 @@ class RedisCache
 
   attr_reader :redis_pool
 end
-

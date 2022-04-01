@@ -129,4 +129,3 @@ describe CCTray do
     end
   end
 end
-

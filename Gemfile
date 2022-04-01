@@ -23,4 +23,3 @@ group :test do
   gem "rspec-match_fuzzy"
   gem "webmock"
 end
-

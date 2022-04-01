@@ -22,4 +22,3 @@ get "/:group/:repo/:workflow" do |group, repo, workflow|
 
   CCTray.new(redis_pool: redis_pool).status(group: group, repo: repo, workflow: workflow, xml: true)
 end
-

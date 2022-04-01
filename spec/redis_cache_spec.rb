@@ -74,4 +74,3 @@ describe RedisCache do
     end
   end
 end
-

@@ -35,4 +35,3 @@ RSpec.configure do |config|
   config.before { WebMock.disable_net_connect! }
   config.include(Helpers)
 end
-

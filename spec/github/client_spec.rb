@@ -131,4 +131,3 @@ RSpec.describe GitHub::Client do
     end
   end
 end
-

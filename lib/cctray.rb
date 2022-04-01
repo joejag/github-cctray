@@ -79,4 +79,3 @@ class CCTray
     XmlSimple.xml_out(status, { rootname: "Projects", anonymoustag: "Project" })
   end
 end
-
