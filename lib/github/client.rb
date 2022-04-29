@@ -13,7 +13,6 @@ module GitHub
       @username = username || ENV.fetch("GITHUB_USERNAME")
       @token = token || ENV.fetch("GITHUB_TOKEN")
       @cache = cache || RedisCache.new(redis_pool: redis_pool)
-      raise ArgumentError unless username && token
     end
 
     def runs(group: , repo: , workflow: )
