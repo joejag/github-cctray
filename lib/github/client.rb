@@ -10,8 +10,8 @@ module GitHub
     CACHE_TTL = 5.seconds
 
     def initialize(username: nil, token: nil, cache: nil, redis_pool: nil)
-      @username = username || ENV["GITHUB_USERNAME"]
-      @token = token || ENV["GITHUB_TOKEN"]
+      @username = username || ENV.fetch("GITHUB_USERNAME")
+      @token = token || ENV.fetch("GITHUB_TOKEN")
       @cache = cache || RedisCache.new(redis_pool: redis_pool)
       raise ArgumentError unless username && token
     end

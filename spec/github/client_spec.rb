@@ -27,14 +27,14 @@ RSpec.describe GitHub::Client do
     context "with no username" do
       let(:username) { nil }
       it "raises an error" do
-        expect { subject }.to raise_error(ArgumentError)
+        expect { subject }.to raise_error(KeyError)
       end
     end
 
     context "with no token" do
       let(:token) { nil }
       it "raises an error" do
-        expect { subject }.to raise_error(ArgumentError)
+        expect { subject }.to raise_error(KeyError)
       end
     end
 

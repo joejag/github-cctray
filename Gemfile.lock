@@ -7,20 +7,20 @@ GIT
 
 GIT
   remote: https://github.com/srpatx/srp-style.git
-  revision: 65159b904a282f35b0a0b32c00fb06c17f55e70c
+  revision: 450ddaa7575a43df2bb277481346f137b7d98214
   specs:
     srp-style (0.87.1)
-      rubocop (~> 1.26)
+      rubocop (~> 1.28)
       rubocop-performance (~> 1.13)
       rubocop-rails (~> 2.14)
       rubocop-rake (~> 0.6)
-      rubocop-rspec (~> 2.9)
+      rubocop-rspec (~> 2.10)
       rubocop-thread_safety (~> 0.4)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.2.3)
+    activesupport (7.0.2.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -58,9 +58,9 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
     parallel (1.22.1)
-    parser (3.1.1.0)
+    parser (3.1.2.0)
       ast (~> 2.4.1)
-    public_suffix (4.0.6)
+    public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
     rack (2.2.3)
@@ -69,7 +69,7 @@ GEM
     rainbow (3.1.1)
     rake (13.0.6)
     redis (4.6.0)
-    regexp_parser (2.2.1)
+    regexp_parser (2.3.1)
     rexml (3.2.5)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
@@ -89,16 +89,16 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
-    rubocop (1.26.1)
+    rubocop (1.28.2)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.16.0, < 2.0)
+      rubocop-ast (>= 1.17.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.16.0)
+    rubocop-ast (1.17.0)
       parser (>= 3.1.1.0)
     rubocop-performance (1.13.3)
       rubocop (>= 1.7.0, < 2.0)
@@ -109,7 +109,7 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-rspec (2.9.0)
+    rubocop-rspec (2.10.0)
       rubocop (~> 1.19)
     rubocop-thread_safety (0.4.4)
       rubocop (>= 0.53.0)

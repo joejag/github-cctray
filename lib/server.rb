@@ -13,12 +13,11 @@ redis_pool = ConnectionPool.new(size: redis_pool_size, timeout: redis_pool_timeo
 end
 
 get "/" do
-  # redirect to example project
-  redirect "/build-canaries/nevergreen/nevergreen.yml"
+  "🚗 Beep! Beep!"
 end
 
 get "/:group/:repo/:workflow" do |group, repo, workflow|
   content_type "application/xml"
 
-  CCTray.new(redis_pool: redis_pool).status(group: group, repo: repo, workflow: workflow, xml: true)
+  CCTray.new(redis_pool: redis_pool).status(group: group, repo: repo, workflow: workflow, branch: params[:branch], xml: true)
 end

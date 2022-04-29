@@ -31,13 +31,13 @@ class CCTray
   }.freeze
 
   def initialize(github_client: nil, redis_pool: nil)
-    @github_client = github_client ||
-      GitHub::Client.new(username: ENV["GITHUB_USERNAME"], token: ENV["GITHUB_TOKEN"], redis_pool: redis_pool)
+    @github_client = github_client || GitHub::Client.new(redis_pool: redis_pool)
   end
 
-  def status(group: , repo: , workflow: , xml: false)
+  def status(group: , repo: , workflow: , branch: nil, xml: false)
     github_runs = github_client.runs(group: group, repo: repo, workflow: workflow)
     runs = github_runs.fetch("workflow_runs", [])
+    runs = runs.select { |run| run["head_branch"] == branch } if branch
     most_recent_run = runs.max_by { |run| run["created_at"] }
 
     result = most_recent_run ? [generate_cctray_status_for(most_recent_run, all_runs: runs)] : []

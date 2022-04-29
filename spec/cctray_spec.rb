@@ -20,7 +20,7 @@ describe CCTray do
     end
 
     context "when github returns nothing" do
-      let(:githhub_runs) { {} }
+      let(:github_runs) { {} }
       it { should == [] }
     end
 
@@ -76,16 +76,23 @@ describe CCTray do
       let(:older_run) do
         template_github_job({
           "conclusion" => "failure",
-          "created_at" => "2010-03-09T21:03:53Z"
+          "created_at" => "2010-03-09T21:03:53Z",
+          "head_branch" => "master"
         })
       end
       let(:newer_run) do
         template_github_job({
           "conclusion" => "success",
-          "created_at" => "2020-03-09T21:03:53Z"
+          "created_at" => "2020-03-09T21:03:53Z",
+          "head_branch" => "not_master"
         })
       end
       its(:first) { should include(lastBuildStatus: "Success") }
+
+      context "when a branch is given" do
+        let(:kwargs) { { branch: "master" } }
+        its(:first) { should include(lastBuildStatus: "Failure") }
+      end
     end
 
     context "with a run in progress" do
