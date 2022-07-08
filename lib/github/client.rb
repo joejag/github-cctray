@@ -7,7 +7,7 @@ module GitHub
   class Client
     include Srp::Api::Client
 
-    CACHE_TTL = 5.seconds
+    CACHE_TTL = 10.seconds
 
     def initialize(username: nil, token: nil, cache: nil, redis_pool: nil)
       @username = username || ENV.fetch("GITHUB_USERNAME")
