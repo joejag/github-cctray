@@ -9,7 +9,7 @@ redis_pool_size = ENV.fetch("REDIS_POOL_SIZE", 25)
 redis_pool_timeout = ENV.fetch("REDIS_POOL_TIMEOUT", 5)
 redis_url = ENV.fetch("REDIS_URL")
 redis_pool = ConnectionPool.new(size: redis_pool_size, timeout: redis_pool_timeout) do
-  Redis.new(url: redis_url)
+  Redis.new(url: redis_url, ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE })
 end
 
 get "/" do
